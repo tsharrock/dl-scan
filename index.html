@@ -7,7 +7,6 @@
     <link rel="shortcut icon" href="/favicon.ico?v=2"/>
     <!-- The compiled brand css file below loads bootstrap as well -->
     <link rel="stylesheet" href="css/brand/harley.css"/>
-
 </head>
 <body>
     <div class="flow-app" ng-app="dlScan">
@@ -29,7 +28,7 @@
                         <section ng-switch-when="1" class="field-container">
                             <h2>Start your lease application</h2>
                             <div class="row row1 show-row-next">
-                                <div class="col-xs-6 form-group show-errors">
+                                <div class="col-xs-6 form-group">
                                     <label>Name:</label>
                                     <input class="form-control ng-pristine ng-invalid ng-invalid-required ng-valid-pattern field-invalid-first" type="text" placeholder="FIRST" name="firstname" ng-model="applicant.FirstName" ng-pattern="consts.letters" maxlength="15" data-error-msg="This field can only contain letters, apostrophes, hyphens and spaces." required="required" am-word-capitalize="name"><span></span><span>This field cannot be empty.</span>
                                 </div>

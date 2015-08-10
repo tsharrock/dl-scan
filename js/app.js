@@ -27,31 +27,30 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
     // $scope.dlString3 = "@ANSI 636040070002DL00410307ZU03480012DLDAQ0157933645DCSSHARROCKDDEUDACTHOMASDDFUDADWILLIAMDDGUDCADDCBBDCDNONEDBD06222015DBB05211973DBA05212020DBC1DAU075 inDAYBLUDAG13547 S CHAMONIX WAYDAIRIVERTONDAJUTDAK840650000  DCF1_6302015DCGUSADCK01579336450101DDAFDDB01012013DAW220DAZBLNDDH05211991DDI05211992DDJ05211994DDK1ZUZUAYZUBZ";
     var DLSections = "DAQ|DAA|DAG|DAI|DAJ|DAK|DAR|DAS|DAT|DAU|DAW|DAY|DAZ|DBA|DBK|DBB|DBC|DBD|DCT|DCS|DAD|DDE|DDF";
     /* Driver's License delimiters
-          DAQ: License Number
-          DAA: Name
-          DCT or DAC: First Name
-          DCS: Last Name
-          DAD: Middle Name
-          DAG: Address
-          DAI: City
-          DAJ: State Code
-          DAK: Zip code
-          DAR: Class
-          DAS: Restriction
-          DAT: Endorsement
-          DAU: Height
-          DAW: Weight
-          DAY: Eye Color
-          DAZ: Hair Color
-          DBA: Expiration Date
-          DBK: Social Security Number
-          DBB: Date of Birth
-          DBC: Gender
-          DBD: Date of Issue
-        */
+        DAQ: License Number
+        DAA: Name
+        DCT or DAC: First Name
+        DCS: Last Name
+        DAD: Middle Name
+        DAG: Address
+        DAI: City
+        DAJ: State Code
+        DAK: Zip code
+        DAR: Class
+        DAS: Restriction
+        DAT: Endorsement
+        DAU: Height
+        DAW: Weight
+        DAY: Eye Color
+        DAZ: Hair Color
+        DBA: Expiration Date
+        DBK: Social Security Number
+        DBB: Date of Birth
+        DBC: Gender
+        DBD: Date of Issue
+    */
     var changeCount = 0;
     $scope.$watch('dlString', function() {
-
         if (changeCount === 1) {
             $scope.msg = "Scan complete, loading your information...";
             $timeout(function() {
