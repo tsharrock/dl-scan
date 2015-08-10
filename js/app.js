@@ -88,7 +88,12 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
             var LastName = STRING.match("DCS(.*?)(" + DLSections + ")");
             $scope.applicant.LastName = LastName[1];
         }
-
+        //suffix jr,...
+        var SUF = STRING.match("DCU(.*?)(" + DLSections + ")");
+        if (SUF) {
+            $scope.applicant.LastName = $scope.applicant.LastName + " " + SUF[1];
+        }
+        
         var Address = STRING.match("DAG(.*?)(" + DLSections + ")");
         $scope.applicant.Address.Line1 = Address[1];
         var City = STRING.match("DAI(.*?)(" + DLSections + ")");
