@@ -317,11 +317,10 @@
                             </div>
                         </div>
                     </div>
-                    <div ng-include src="'navigation-buttons.html'"></div>
-                    <script type="text/ng-template" id="navigation-buttons.html">
+                    
                         <div class="clearfix row step-buttons">
                             <div class="col-xs-6 pull-right">
-                                <button type="button" class="btn btn-step btn-step-next btn-md pull-right" ng-click="moveNext()">
+                                <button type="button" class="btn btn-step btn-step-next btn-md pull-right" ng-click="moveNext()" ng-hide="steps.active==4">
                                     <span class="next">Next
                                     <svg version="1.1" id="btnNext" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
                                         <path class="svg-btn-next" d="M0,14.2h25.5L14.7,24.9l1.4,1.4l13.2-13.2L16.1,0l-1.4,1.4l10.8,10.8H0L0,14.2z"/>
@@ -338,7 +337,7 @@
                                 </button>
                             </div>
                         </div>
-                    </script>
+                  
                 </section>
             </form>
         </div>
