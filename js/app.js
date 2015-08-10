@@ -13,6 +13,11 @@ dlScan.run(['$rootScope', function($rootScope) {
                 'YearsAtAddress': '',
                 'MonthsAtAddress': ''
             }
+        },
+        'Identification': {
+            'IdentificationType':'',
+            'Number':'',
+            'State':''
         }
     };
 }]);
@@ -25,7 +30,8 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
     angular.element("#scanModal").modal('show');
     $scope.dlString = "";
     // $scope.dlString3 = "@ANSI 636040070002DL00410307ZU03480012DLDAQ0157933645DCSSHARROCKDDEUDACTHOMASDDFUDADWILLIAMDDGUDCADDCBBDCDNONEDBD06222015DBB05211973DBA05212020DBC1DAU075 inDAYBLUDAG13547 S CHAMONIX WAYDAIRIVERTONDAJUTDAK840650000  DCF1_6302015DCGUSADCK01579336450101DDAFDDB01012013DAW220DAZBLNDDH05211991DDI05211992DDJ05211994DDK1ZUZUAYZUBZ";
-    var DLSections = "DAQ|DAA|DAG|DAI|DAJ|DAK|DAR|DAS|DAT|DAU|DAW|DAY|DAZ|DBA|DBK|DBB|DBC|DBD|DCT|DCS|DAD|DDE|DDF";
+    //var DLSections = "DAQ|DAA|DAG|DAI|DAJ|DAK|DAR|DAS|DAT|DAU|DAW|DAY|DAZ|DBA|DBK|DBB|DBC|DBD|DCT|DCS|DAD|DDE|DDF|DCF";
+    var DLSections = "DCA|DCB|DCD|DBA|DCS|DCT|DAC|DAD|DBD|DBC|DAY|DAU|DAG|DAI|DAJ|DAK|DAQ|DCF|DCG|DDE|DDF|DDG|DAH|DAZ|DCI|DCJ|DCK|DBN|DBG|DBS|DCU|DCE|DCL|DCM|DCN|DCO|DCP|DCQ|DCR|DDA|DDB|DDC|DDD|DAW|DAX|DDH|DDI|DDJ|DDK|DDL";
     /* Driver's License delimiters
         DAQ: License Number
         DAA: Name
@@ -99,6 +105,7 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
         $scope.applicant.Address.City = City[1];
         var State = STRING.match("DAJ(.*?)(" + DLSections + ")");
         $scope.applicant.Address.State = State[1];
+        $scope.applicant.Identification.State = State[1];//identification issuing state
         var Zip = STRING.match("DAK(.*?)(" + DLSections + ")");
         $scope.applicant.Address.Zip = Zip[1].substring(0, 5);
         var Dob = STRING.match("DBB(.*?)(" + DLSections + ")");
@@ -106,6 +113,17 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
         var dd = Dob[1].substring(2, 4);
         var yyyy = Dob[1].substring(4, 8);
         $scope.applicant.DateOfBirth = mm + "/" + dd + "/" + yyyy;
+
+        //id number
+        var License = STRING.match("DAQ(.*?)(" + DLSections + ")");
+        if(License){
+            $scope.applicant.Identification.IdentificationType = "DriversLicense";
+        }
+        if(License[1].charAt(0)=="0") {
+            License[1] = License[1].substr(1);
+        }
+        $scope.applicant.Identification.Number = License[1];
+
         //social
         var SSN = STRING.match("DBK(.*?)(" + DLSections + ")");
         if (SSN) {
@@ -117,7 +135,11 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
     }
 
     $scope.moveNext = function() {
-        $scope.steps.active = $scope.steps.active + 1;
+        if($scope.steps.active === 5) {
+            angular.element("#endModal").modal('show');
+        } else {
+            $scope.steps.active = $scope.steps.active + 1;    
+        }
     };
 
     $scope.moveBack = function() {

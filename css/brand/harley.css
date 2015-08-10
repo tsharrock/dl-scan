@@ -6594,7 +6594,7 @@ dl.definitions dd {
   right: 121px;
 }
 .container form select.form-control {
-  background-image: url(/images/generic/down-caret.svg);
+  background-image: url(../../images/generic/down-caret.svg);
   background-repeat: no-repeat;
   background-position: right 24px center;
   background-size: 20px;
@@ -6617,7 +6617,7 @@ dl.definitions dd {
 }
 .container .show-errors .ng-invalid + label + span.check-error {
   position: relative;
-  background-image: url(/images/form-validation/warning.svg);
+  background-image: url(../../images/form-validation/warning.svg);
   background-repeat: no-repeat;
   background-position: center;
   display: inline;
