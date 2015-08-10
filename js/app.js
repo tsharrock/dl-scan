@@ -29,9 +29,9 @@ dlScan.controller('StartController', function($scope, $rootScope, $timeout) {
     $scope.msg = "";
     angular.element("#scanModal").modal('show');
     $scope.dlString = "";
-    var DLSections = "DAA|DCA|DAS|DAT|DCB|DBK|DBB|DCD|DBA|DCS|DCT|DAC|DAD|DBD|DBC|DAY|DAU|DAG|DAI|DAJ|DAK|DAQ|DCF|DCG|DDE|DDF|DDG|DAH|DAZ|DCI|DCJ|DCK|DBN|DBG|DBS|DCU|DCE|DCL|DCM|DCN|DCO|DCP|DCQ|DCR|DDA|DDB|DDC|DDD|DAW|DAX|DDH|DDI|DDJ|DDK|DDL";
-
-    /* Driver's License delimiters
+    var DLSections = "DAA|DCA|DAS|DAT|DCB|DBK|DBB|DCD|DBA|DCS|DCT|DAC|DAD|DBD|DBC|DAY|DAU|DAG|DAI|DAJ|DAK|DAQ|DCF|DCG|DDE|DDF|DDG|DAH|DAZ|DCI|DCJ|DCK|DBN|DBG|DBS|DCU|DCE|DCL|DCM|DCN|DCO|DCP|DCQ|DCR|DDB|DDC|DDD|DAW|DAX|DDH|DDI|DDJ|DDK|DDL";
+    /* 
+        Driver's License delimiters
         DAQ: License Number
         DAA: Name
         DCT or DAC: First Name
